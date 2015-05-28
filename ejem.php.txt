@@ -1,0 +1,24 @@
+<?php
+function recoge($var) 
+{
+    $tmp = (isset($_REQUEST[$var]))
+        ? trim(htmlspecialchars($_REQUEST[$var], ENT_QUOTES, "ISO-8859-1"))
+        : "";
+    return $tmp;
+}
+
+$nombre = recoge("nombre");
+$edad   = recoge("edad");
+
+if ($nombre == "") {
+    print "<p class=\"aviso\">No ha escrito su nombre.</p>\n";
+} else {
+    print "<p>Su nombre es <strong>$nombre</strong>.</p>\n";
+}
+
+if ($edad == "") {
+    print "<p class=\"aviso\">No ha escrito su edad.</p>\n";
+} else {
+    print "<p>Su edad es <strong>$edad</strong> años.</p>\n";
+}
+?>
